@@ -168,8 +168,6 @@ function showTeamMember(teamMember) {
 
     // Tilføjer eventlistener på teammember, der åbner modal
     clone.querySelector("img").addEventListener("click", () => showTeamMembermodal(teamMember));
-
-    // Tilføjer eventlistener på teammember, der åbner modal
     clone.querySelector(".add").addEventListener("click", () => addTeamMember(teamMember));
 
     document.querySelector("#team").appendChild(clone);
@@ -183,17 +181,13 @@ function showTeamMember(teamMember) {
 
 function addTeamMember(teamMember) {
     if (myTeam.includes(teamMember)) {
-
-        console.log("Remove" + teamMember.name);
         removeSidebarTeamMember(teamMember);
 
     } else {
-        // Test - pusher til myteam array
         myTeam.push(teamMember);
         console.log(myTeam);
-        buildSidebarTeam();
     }
-
+    buildSidebarTeam();
 }
 
 function buildSidebarTeam() {
@@ -240,9 +234,14 @@ function showLink() {
         memberIDS.push(member.id);
     });
 
-    document.querySelector("#link_input").value = "team.html?id=" + memberIDS;
+    const url = window.location.href;
+    const link = document.querySelector("#link_input");
+    link.value = url;
+    link.scrollLeft = link.scrollWidth;
 
-    document.querySelector("#link_input").addEventListener("click", selectLink);
+    link.value = "team.html?id=" + memberIDS;
+
+    link.addEventListener("click", selectLink);
     document.querySelector("#clipboard_copy").addEventListener("click", copyLink);
 }
 
@@ -256,12 +255,17 @@ function selectLink() {
 }
 
 function copyLink() {
-    var copyText = document.querySelector("#link_input");
+    let copyText = document.querySelector("#link_input");
 
     copyText.select();
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
     document.execCommand("copy");
+
+    document.querySelector(".copy_text").style.display = "block";
+    setTimeout(function () {
+        document.querySelector(".copy_text").style.display = "none";
+    }, 3000);
 
 }
 
@@ -297,10 +301,8 @@ function checkMyTeamLength() {
 function showTeamMembermodal(teamMember) {
     const modal = document.querySelector(".modal");
 
-    // Displays modal
     modal.style.display = "block";
 
-    // Places data inside modal
     modal.querySelector("h2").textContent = teamMember.name;
     modal.querySelector("h3").textContent = teamMember.position;
     modal.querySelector("[data-field=description]").textContent = teamMember.description;
@@ -314,14 +316,15 @@ function showTeamMembermodal(teamMember) {
 
     modal.querySelector(".e-mail").textContent = "E-mail: " + teamMember.email;
     modal.querySelector("img").src = "img/" + teamMember.image;
-
     modal.querySelector("#close_modal").addEventListener("click", closeModal);
+
+    // fix this
+    modal.querySelector(".add").addEventListener("click", () => addTeamMember(teamMember));
 
     function closeModal() {
         modal.style.display = "none";
     }
 
-    // Ved klik udenfor modal lukkes den
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";

@@ -1,8 +1,7 @@
-import './sass/main.scss';
-
 "use strict";
 
-const url = location.search;
+const url = window.location.href;
+console.log(url)
 var idList = url.substring(url.lastIndexOf('=') + 1);
 var result = idList.split(',').map(x => + x);
 var myJsonString = JSON.parse(JSON.stringify(result))
@@ -48,7 +47,7 @@ function prepareData(jsonData) {
         // Define name, position, description and image
         const firstSpace = jsonObject.fullname.trim().indexOf(" ");
 
-        teamMember.firstname = jsonObject.fullname.trim().substring(0, firstSpace);
+        teamMember.firstname = jsonObject.fullname.trim().substring(0, firstSpace).toLowerCase();
         teamMember.name = jsonObject.fullname;
         teamMember.memberId = jsonObject.id;
         teamMember.position = jsonObject.position;
@@ -96,5 +95,64 @@ function addTeamMember(teamMember) {
     clone.querySelector("img").addEventListener("click", () => showTeamMembermodal(teamMember));
 
     document.querySelector("#team").appendChild(clone);
-    console.log(teamMember.id)
+
+    const link = document.querySelector("#link_input");
+    link.value = url;
+    link.scrollLeft = link.scrollWidth;
+
+    link.addEventListener("click", selectLink);
+    document.querySelector("#clipboard_copy").addEventListener("click", copyLink);
+}
+
+function selectLink() {
+    document.querySelector("#link_input").select();
+}
+
+function copyLink() {
+    let copyText = document.querySelector("#link_input");
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+    document.execCommand("copy");
+    document.querySelector(".copy_text").style.display = "block";
+    setTimeout(function () {
+        document.querySelector(".copy_text").style.display = "none";
+    }, 3000);
+}
+
+function showTeamMembermodal(teamMember) {
+    const modal = document.querySelector(".modal");
+
+    // Displays modal
+    modal.style.display = "block";
+
+    // Places data inside modal
+    modal.querySelector("h2").textContent = teamMember.name;
+    modal.querySelector("h3").textContent = teamMember.position;
+    modal.querySelector("[data-field=description]").textContent = teamMember.description;
+    modal.querySelector("[data-field=department]").textContent = teamMember.department;
+
+    if (teamMember.phone === "") {
+        modal.querySelector(".phone").textContent = "";
+    } else {
+        modal.querySelector(".phone").textContent = "Phone: " + teamMember.phone;
+    }
+
+    modal.querySelector(".e-mail").textContent = "E-mail: " + teamMember.email;
+    modal.querySelector("img").src = "img/" + teamMember.image;
+
+    modal.querySelector("#close_modal").addEventListener("click", closeModal);
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Ved klik udenfor modal lukkes den
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
 }

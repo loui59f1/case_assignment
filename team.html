@@ -6,35 +6,30 @@
     <link rel="icon" type="image/png" href="img/icons/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_team.css">
     <title>Signifly Team</title>
 </head>
 
 <body>
-
     <header>
-        <div class="header_inner">
-            <h1>
-                <span>This is your team</span><br>
-                <span class="headline_color">a great one</span>
-            </h1>
-            <div class="icon_header">
-                <img src="img/icons/team_icon.png">
-            </div>
+        <div class="logo">
+            <img src="img/signifly_logo.png">
         </div>
     </header>
     <main>
-        <section id="team"></section>
-        <section id="myteam">
-            <div class="sectionwrapper">
-                <h2>The team</h2>
-                <span class="clear">Clear</span>
-                <p class="info">There are currently no members of this team</p>
-                <div id="member">
-                </div>
-                <button id="generate_link"><a href="">Generate link</a></button>
+        <div class="team_info">
+            <h1>
+                <span>This is</span><br>
+                <span class="headline_color">your team</span>
+            </h1>
+            <p class="copy_text">Link copied!</p>
+            <h3>Your team link</h3>
+            <div class="input_group">
+                <input type="text" value="" id="link_input" readonly><button id="clipboard_copy"><img
+                        src="img/icons/copy_icon.svg"></button>
             </div>
-        </section>
+        </div>
+        <section id="team"></section>
 
         <template id="teamlist">
             <article>
@@ -61,13 +56,14 @@
         <div class="modal">
             <article>
                 <div class="column img">
+                    <p data-field="department"></p>
                     <img src="">
                 </div>
                 <div class="column text">
                     <div id="close_modal">x</div>
                     <h2></h2>
                     <h3></h3>
-                    <p></p>
+                    <p data-field="description"></p>
                     <div class="contact_info">
                         <div class="phone"></div>
                         <div class="e-mail"></div>
@@ -77,7 +73,7 @@
         </div>
     </main>
 
-    <script type=module src="/team.js"></script>
+    <script type=module src="team.js"></script>
 
 </body>
 
