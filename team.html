@@ -13,26 +13,14 @@
 <body>
 
     <header>
-        <div class="logo">
-            <img src="img/signifly_logo.png">
-        </div>
         <div class="header_inner">
             <h1>
-                <span>Let's build a team</span><br>
+                <span>This is your team</span><br>
                 <span class="headline_color">a great one</span>
             </h1>
             <div class="icon_header">
                 <img src="img/icons/team_icon.png">
             </div>
-        </div>
-        <div class="filter_btns">
-            <button class="filter" data-action="filter" data-filter="all">All</button>
-            <button class="filter" data-action="filter" data-filter="consultants">Consultants</button>
-            <button class="filter" data-action="filter" data-filter="strategists">Strategists</button>
-            <button class="filter" data-action="filter" data-filter="designers">Designers</button>
-            <button class="filter" data-action="filter" data-filter="tech">Tech</button>
-            <button class="filter" data-action="filter" data-filter="innovation">Innovation Leads</button>
-            <button class="filter" data-action="filter" data-filter="creatives">Creatives</button>
         </div>
     </header>
     <main>
@@ -41,27 +29,16 @@
             <div class="sectionwrapper">
                 <h2>The team</h2>
                 <span class="clear">Clear</span>
-                <p class="info">There are currently no members of this team. Add team members to your team.</p>
+                <p class="info">There are currently no members of this team</p>
                 <div id="member">
                 </div>
-                <button id="generate_link"><img class="button_icon" src="img/icons/dropdown_icon.svg">Generate
-                    link<img class="arrow_icon" src="img/icons/arrow_icon.svg"></button>
-            </div>
-            <div class="link_container">
-                <h3>Get your team link</h3>
-                <div class="input_group">
-                    <input type="text" value="" id="link_input"><button id="clipboard_copy"><img
-                            src="img/icons/copy_icon.svg"></button>
-                </div>
+                <button id="generate_link"><a href="">Generate link</a></button>
             </div>
         </section>
 
         <template id="teamlist">
             <article>
                 <img src="">
-                <div class="interact">
-                    <button class="add" data-action="addtoteam"></button>
-                </div>
                 <div class="details">
                     <h2 data-field="name"></h2>
                     <p data-field="position"></p>
@@ -84,14 +61,13 @@
         <div class="modal">
             <article>
                 <div class="column img">
-                    <p data-field="department"></p>
                     <img src="">
                 </div>
                 <div class="column text">
                     <div id="close_modal">x</div>
                     <h2></h2>
                     <h3></h3>
-                    <p data-field="description"></p>
+                    <p></p>
                     <div class="contact_info">
                         <div class="phone"></div>
                         <div class="e-mail"></div>
@@ -100,7 +76,8 @@
             </article>
         </div>
     </main>
-    <script type=module src="main.js"></script>
+
+    <script type=module src="/team.js"></script>
 
 </body>
 

@@ -1,5 +1,3 @@
-import './sass/main.scss';
-
 "use strict";
 
 document.addEventListener("DOMContentLoaded", init);
@@ -44,7 +42,7 @@ function prepareData(jsonData) {
 
         const firstSpace = jsonObject.fullname.trim().indexOf(" ");
 
-        teamMember.firstname = jsonObject.fullname.trim().substring(0, firstSpace);
+        teamMember.firstname = jsonObject.fullname.trim().substring(0, firstSpace).toLowerCase();
         teamMember.name = jsonObject.fullname;
         teamMember.position = jsonObject.position;
         teamMember.description = jsonObject.description;
@@ -202,6 +200,7 @@ function buildSidebarTeam() {
     showAllSidebarTeam(myTeam);
     checkMyTeamLength();
     buildLoopView();
+    closeLink();
 }
 
 function showAllSidebarTeam(myTeam) {
@@ -226,6 +225,7 @@ function showSidebarTeam(sidebarTeamMember) {
 
     //document.querySelector(".link_ids").href = "team.html?id=" + memberIDS;
 
+    document.querySelector("#generate_link").removeEventListener("click", showLink);
     document.querySelector("#generate_link").addEventListener("click", showLink);
 
 }
@@ -244,12 +244,11 @@ function showLink() {
 
     document.querySelector("#link_input").addEventListener("click", selectLink);
     document.querySelector("#clipboard_copy").addEventListener("click", copyLink);
-
-    document.querySelector("#generate_link").addEventListener("click", closeLink);
 }
 
 function closeLink() {
     document.querySelector(".link_container").style.display = "none";
+
 }
 
 function selectLink() {
@@ -263,6 +262,7 @@ function copyLink() {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
     document.execCommand("copy");
+
 }
 
 function removeSidebarTeamMember(teamMember) {
@@ -272,13 +272,13 @@ function removeSidebarTeamMember(teamMember) {
     myTeam.splice(iOfMember, 1);
     console.log(myTeam);
     buildSidebarTeam();
-
 }
 
 function clearMyTeam() {
     myTeam = [];
     document.querySelector("#member").innerHTML = "";
     checkMyTeamLength();
+    closeLink();
     buildLoopView();
 }
 
@@ -293,8 +293,6 @@ function checkMyTeamLength() {
         document.querySelector("#generate_link").style.display = "none";
     }
 }
-
-// Open teammember modal and place data
 
 function showTeamMembermodal(teamMember) {
     const modal = document.querySelector(".modal");
