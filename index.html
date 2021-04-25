@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signifly Team</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header_inner">
+            <h1>
+                <span>Let's build a team</span><br>
+                <span class="headline_color">a great one</span>
+            </h1>
+            <div class="icon_header">
+                <img src="img/icons/team_icon.png">
+            </div>
+        </div>
+        <div class="filter_btns">
+            <button class="filter" data-action="filter" data-filter="all">All</button>
+            <button class="filter" data-action="filter" data-filter="consultants">Consultants</button>
+            <button class="filter" data-action="filter" data-filter="strategists">Strategists</button>
+            <button class="filter" data-action="filter" data-filter="designers">Designers</button>
+            <button class="filter" data-action="filter" data-filter="tech">Tech</button>
+            <button class="filter" data-action="filter" data-filter="innovation">Innovation Leads</button>
+            <button class="filter" data-action="filter" data-filter="creatives">Creatives</button>
+        </div>
+    </header>
+    <main>
+        <section id="team"></section>
+        <section id="myteam">
+            <div class="sectionwrapper">
+                <h2>The team</h2>
+                <span class="clear">Clear</span>
+                <p class="info">There are currently no members of this team</p>
+                <div id="member">
+                </div>
+                <button id="generate_link"><a class="link_ids" href="#">Generate link</a></button>
+            </div>
+        </section>
+
+        <template id="teamlist">
+            <article>
+                <img src="">
+                <div class="interact">
+                    <button class="add" data-action="addtoteam"></button>
+                </div>
+                <div class="details">
+                    <h2 data-field="name"></h2>
+                    <p data-field="position"></p>
+                    <p data-field="department"></p>
+                </div>
+            </article>
+        </template>
+
+        <template id="newTeamMember">
+            <article>
+                <img src="">
+                <div class="myteam_details">
+                    <h2 class="myteam_name"></h2>
+                    <p class="myteam_position"></p>
+                </div>
+                <div id="remove_member"></div>
+            </article>
+        </template>
+
+        <div class="modal">
+            <article>
+                <div class="column img">
+                    <p data-field="department"></p>
+                    <img src="">
+                </div>
+                <div class="column text">
+                    <div id="close_modal">x</div>
+                    <h2></h2>
+                    <h3></h3>
+                    <p data-field="description"></p>
+                    <div class="contact_info">
+                        <div class="phone"></div>
+                        <div class="e-mail"></div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+
+</body>
+
+</html>
