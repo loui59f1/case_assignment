@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/icons/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signifly Team</title>
@@ -11,6 +12,9 @@
 <body>
 
     <header>
+        <div class="logo">
+            <img src="img/signifly_logo.png">
+        </div>
         <div class="header_inner">
             <h1>
                 <span>Let's build a team</span><br>
@@ -36,10 +40,19 @@
             <div class="sectionwrapper">
                 <h2>The team</h2>
                 <span class="clear">Clear</span>
-                <p class="info">There are currently no members of this team</p>
+                <p class="info">There are currently no members of this team. Add team members to your team.</p>
                 <div id="member">
                 </div>
-                <button id="generate_link"><a class="link_ids" href="#">Generate link</a></button>
+                <button id="generate_link"><a class="link_ids" href=""><img class="button_icon"
+                            src="img/icons/dropdown_icon.svg">Generate
+                        link<img class="arrow_icon" src="img/icons/arrow_icon.svg"></a></button>
+            </div>
+            <div class="link_container">
+                <h3>Get your team link</h3>
+                <div class="input_group">
+                    <input type="text" value="" id="link_input"><button id="clipboard_copy"><img
+                            src="img/icons/copy_icon.svg"></button>
+                </div>
             </div>
         </section>
 

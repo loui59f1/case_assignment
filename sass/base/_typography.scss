@@ -26,14 +26,21 @@ h1 {
     width: 220px;
     letter-spacing: 1px;
     line-height: 50px;
-    margin-bottom: 35px;
-    
+    margin-bottom: 0px;
+
     @media only screen and (min-width: 640px) {
         font-size: 70px;
         line-height: 70px;
         width: 100%;
         margin-bottom: 25px;
     }
+}
+
+p[data-field=department] {
+    font-family: 'National 2', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 span {
@@ -69,8 +76,15 @@ h2 {
     }
 }
 
-#myteam #member {
+#myteam {
+    h2 {
+        font-family: 'Bureau Grot Compressed';
+        font-size: 23px;
+        text-transform: uppercase;
+    }
+}
 
+#myteam #member {
     h2 {
         font-family: 'National 2';
         text-transform: none;
@@ -78,7 +92,6 @@ h2 {
         margin-bottom: 5px;
         margin-top: 10px;
     }
-
     p {
         font-size: 13px;
     }
@@ -90,19 +103,16 @@ h2 {
         line-height: 25px;
         font-size: 14px;
     }
-
     h2 {
         font-size: 20px;
         font-weight: 500;
         margin-bottom: 10px;
     }
-
     h3 {
         font-size: 15px;
         font-weight: 300;
         margin-bottom: 25px;
     }
-
     p {
         font-size: 14px;
         line-height: 25px;

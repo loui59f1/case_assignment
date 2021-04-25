@@ -40,6 +40,46 @@
         "email": "ha@signifly.com"
     },
     {
+        "fullname": "Ziad Soliman",
+        "position": "Digital Strategist",
+        "description": "Ziad joined the Canadian team in 2020 as a Digital Strategist. After previously working in B2B Digital Marketing, Ziad is now working with us on our Canadian marketing efforts as well as with assisting on client project planning and execution. When Ziad is not busy generating leads and awareness for Signifly, he is an avid reader and football fan. Ziad holds a Postgraduate degree in Digital Marketing Management from the University of Toronto and a Bachelor of Marketing and International Business from Concordia University.",
+        "department": "Strategists",
+        "phone": "",
+        "email": "zs@signifly.com"
+    },
+    {
+        "fullname": "Mahendra Canaguy",
+        "position": "UX/UI Designer",
+        "description": "Mahendra joined Signifly in August 2020. With his background in UI and UX and an education in Graphic Design, he brings with him an expertise in developing strong user experiences. Self-motivated and goal-oriented, today, Mahendra thrives in developing engaging, thought-provoking work for a variety of clients. However, what you might not know is that outside the office, Mahendra is a car enthusiast. Everything from racecars to diecast cars to diaramas - Mahendra has a passion for the four-wheelers.",
+        "department": "Designers",
+        "phone": "",
+        "email": "mnc@signifly.com"
+    },
+    {
+        "fullname": "Pedro Padron",
+        "position": "Front-end Developer",
+        "description": "Originally from Venezuela, Pedro exchanged sun for snow when he joined Signifly's Montreal office in October 2020 as a front-end developer. His experience in web development and education in computer science allow him to transform complex designs into code and test the feasibility of integrations. Today, he helps fit clients with a unique, beautiful websites. Outside of being a self-proclaimed 'tech geek', Pedro keeps his mind busy with puzzles and a wide taste in movies, and when it's not snowing, a long bike ride.",
+        "department": "Tech",
+        "phone": "",
+        "email": "pp@signifly.com"
+    },
+    {
+        "fullname": "Tobias Lindhardt",
+        "position": "Junior Consultant",
+        "description": "Tobias started his Signifly journey during the beginning of March 2020 as a junior consultant and has already been able to develop new relations and create creative solutions together with our clients. Tobias has loads of experience within the startup environment and even founded his very own before joining Signifly. With his knowledge of starting up businesses from scratch, Tobias has a strong foundation and intuition to see great business potential, which he’s able to use to create innovative and ambitious solutions for our clients.",
+        "department": "Consultants",
+        "phone": "+45 5366 9444",
+        "email": "tl@signifly.com"
+    },
+    {
+        "fullname": "Sasha Ng",
+        "position": "Digital Designer",
+        "description": "Sasha joined the Canadian team in March 2020 as an UI/UX design intern. After working in several digital agencies in her hometown Hong Kong for 5 years, she came to Montreal hoping to gain meaningful new experiences for her personal and professional development. She is keen on creating engaging browsing experiences with the use of playful and meaningful modern-day interactivity, as well as solving problems with a creative and human-centred approach. With her extensive knowledge in front-end development, she has been helping out between the design and tech teams on various projects.",
+        "department": "Designers",
+        "phone": "",
+        "email": "sng@signifly.com"
+    },
+    {
         "fullname": "Sara Friis Bache",
         "position": "Innovation Lead & Head of Operations",
         "description": "Sara started her Signifly journey at the beginning of 2019 and made an immediate impact with her vast and extensive experience within IT project management and management consulting. She is a true planning warrior, scheduling the project processes in close collaboration with our clients, and she is known for her ability to enforce the internal timelines with a firm hand and a big smile.  ",

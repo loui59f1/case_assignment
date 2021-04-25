@@ -1,0 +1,270 @@
+main {
+    display: block;
+    padding: 25px;
+
+    @media only screen and (min-width: 540px) {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-gap: 3em;
+        padding-bottom: 50px;
+    }
+}
+
+#team {
+    display: block;
+
+    @media only screen and (min-width: 540px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 3em;
+    }
+
+    @media only screen and (min-width: 1000px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 3em;
+    }
+
+    article {
+        background: #fff;
+        box-shadow: 0px 0px 30px -14px rgba(199, 199, 199, 0.6);
+        margin-bottom: 30px;
+
+        @media only screen and (min-width: 540px) {
+            margin-bottom: 0;
+        }
+
+        img {
+            width: 100%;  
+            max-height: 250px;
+            object-fit: cover;
+            object-position: top;
+            cursor: pointer;
+        }
+
+        .details {
+            padding: 2em 1.5em;
+        }
+
+        p[data-field=department] {
+            display: none;
+
+            @media only screen and (min-width: 1000px) {
+                display: block;
+                text-align: right;
+                float: right;
+                position: relative;
+                top: -310px;
+                right: 0px;
+                max-width: 100px;
+                opacity: 0.4;
+            }
+        }
+    }
+}
+
+#myteam {
+    .info {
+        margin-top: 25px;
+    }
+
+    #remove_member {
+        position: absolute;
+        left: -5px;
+        top: 35px;
+        background-image: url('img/icons/remove_icon.svg');
+        background-size: cover;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    .sectionwrapper {
+        position: relative;
+        background: #fff;
+        padding: 25px;
+        box-shadow: 0px 0px 30px -14px rgba(199, 199, 199, 0.6);
+    }
+
+    .clear {
+        text-transform: uppercase;
+        font-family: 'National 2';
+        font-size: 12px;
+        position: absolute;
+        right: 0px;
+        width: 80px;
+        margin-top: -62px;
+        margin-right: 0px;
+        cursor: pointer;
+    }
+
+    article {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 1em;
+        margin: 25px 0;
+        position: relative;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .myteam_name {
+        display: block;
+    }
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+    article {
+        display: block;
+        position: fixed;
+        width: 90%;
+        transform: translate(5%, 8%);
+        min-height: 70vh;   
+        background-color: #fff;
+        box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        padding: 5vh 0;
+
+        @media only screen and (min-width: 540px) {
+            display: grid;
+            min-height: 0;
+            grid-template-columns: 1fr 1fr;
+            width: 900px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+        }
+
+        p[data-field=department] {
+            display: none;
+    
+            @media only screen and (min-width: 1000px) {
+                display: block;
+                position: absolute;
+                text-align: left;
+                max-width: 100px;
+                opacity: 0.4;
+                bottom: 25px;
+                line-height: 15px;
+                left: 25px;
+                z-index: 100;
+            }
+        }
+
+        .text{
+            padding: 25px;
+            font-size: 11px !important;
+
+            @media only screen and (min-width: 540px) {
+                padding: 0;
+                padding-right: 35px;
+                margin-left: -10px;
+            }
+        }
+
+        #close_modal {
+            position: absolute;
+            top: 0.5em;
+            right: 1em;
+            color: #000;
+            padding: 0.1em;
+            cursor: pointer;
+            font-family: "National 2", sans-serif;
+            font-size: 25px;
+
+            @media only screen and (min-width: 540px) {
+                top: 1em;
+                right: 1.5em;
+            }
+          }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            max-height: 50vw;
+            object-fit: cover;
+            object-position: top;
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+
+            @media only screen and (min-width: 540px) {
+                width: 90%;
+                height: auto;
+                max-height: none;
+                position: relative;
+                border-radius: 0;
+                margin-bottom: -5px;
+                bottom: 0px;
+                right: 0px;
+            }
+        }
+
+    }
+}
+
+.link_container {
+    display: none;
+    padding: 25px;
+    padding-top: 5px;
+    background: #fff;
+    position: relative;
+    z-index: 100;
+    margin-top: -5px;
+    box-shadow: 0px 0px 20px -14px rgba(199, 199, 199, 0.6);
+    width: 100%;
+
+    h3 {
+        font-family: "National 2", sans-serif;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .input_group {
+        display: block;
+    }
+
+    #link_input {
+        padding: 9px 10px;
+        font-family: 'National 2', sans-serif;
+        font-weight: 300;
+        border: 1px solid #e0e0e0;
+        background: #f5f5f5;
+        width: 100%;
+        display: table-cell;
+    }
+
+    #clipboard_copy {
+        position: absolute;
+        padding-top: 9px;
+        padding-left: 5px;
+        margin-left: -30px;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

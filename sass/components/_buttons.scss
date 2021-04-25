@@ -1,0 +1,64 @@
+button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border-radius: none;
+    border: none;
+    color: #000;
+    font-family: 'National 2', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-right: 25px;
+}
+
+.interact {
+    position: relative;
+}
+
+#generate_link {
+    background-color: #0a0a0a;
+    padding: 10px 15px;
+    padding-top: 15px;
+    font-weight: 400;
+    width: 100%;
+    margin: 0;
+    transition: 1s;
+
+    .link_ids {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .button_icon {
+        width: 20px;
+        height: 20px;
+        float: left;
+        position: relative;
+        margin-top: -3px;
+    }
+
+    .arrow_icon {
+        width: 20px;
+        height: 20px;
+        float: right;
+        position: relative;
+        margin-top: -3px;
+    }
+}
+
+#generate_link:hover {
+    filter: brightness(120%);
+}
+
+.add {
+    background-image: url('img/icons/add_icon.svg');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 0px;
+    top: -25px;
+}

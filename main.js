@@ -54,6 +54,8 @@ function prepareData(jsonData) {
 
         if (teamMember.name === "Mads Lindum") {
             teamMember.image = "lindum.jpg";
+        } else if (teamMember.name === "Tobias Lindhardt") {
+            teamMember.image = "tobiaslindhardt.jpg";
         } else {
             teamMember.image = teamMember.firstname + ".jpg";
         }
@@ -177,5 +179,155 @@ function showTeamMember(teamMember) {
     checkMyTeamLength();
 
     document.querySelector(".clear").addEventListener("click", clearMyTeam);
+
+}
+
+
+function addTeamMember(teamMember) {
+    if (myTeam.includes(teamMember)) {
+
+        console.log("Remove" + teamMember.name);
+        removeSidebarTeamMember(teamMember);
+
+    } else {
+        // Test - pusher til myteam array
+        myTeam.push(teamMember);
+        console.log(myTeam);
+        buildSidebarTeam();
+    }
+
+}
+
+function buildSidebarTeam() {
+    showAllSidebarTeam(myTeam);
+    checkMyTeamLength();
+    buildLoopView();
+}
+
+function showAllSidebarTeam(myTeam) {
+    console.log("Show all sidebar teammembers");
+
+    document.querySelector("#member").innerHTML = "";
+
+    myTeam.forEach(showSidebarTeam);
+}
+
+function showSidebarTeam(sidebarTeamMember) {
+    const clone = document.querySelector("template#newTeamMember").content.cloneNode(true);
+
+    // Placing teammembers data into myteam template
+    clone.querySelector(".myteam_name").textContent = sidebarTeamMember.name;
+    clone.querySelector(".myteam_position").textContent = sidebarTeamMember.position;
+    clone.querySelector("img").src = "img/" + sidebarTeamMember.image;
+    // Tilføjer eventlistener på teammember, der åbner modal
+    clone.querySelector("#remove_member").addEventListener("click", () => removeSidebarTeamMember(sidebarTeamMember));
+
+    document.querySelector("#member").appendChild(clone);
+
+    //document.querySelector(".link_ids").href = "team.html?id=" + memberIDS;
+
+    document.querySelector("#generate_link").addEventListener("click", showLink);
+
+}
+
+function showLink() {
+    document.querySelector(".link_container").style.display = "block";
+
+    // getting id's and making link
+    const memberIDS = [];
+
+    myTeam.forEach(function (member) {
+        memberIDS.push(member.id);
+    });
+
+    document.querySelector("#link_input").value = "team.html?id=" + memberIDS;
+
+    document.querySelector("#link_input").addEventListener("click", selectLink);
+    document.querySelector("#clipboard_copy").addEventListener("click", copyLink);
+
+    document.querySelector("#generate_link").addEventListener("click", closeLink);
+}
+
+function closeLink() {
+    document.querySelector(".link_container").style.display = "none";
+}
+
+function selectLink() {
+    document.querySelector("#link_input").select();
+}
+
+function copyLink() {
+    var copyText = document.querySelector("#link_input");
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    document.execCommand("copy");
+}
+
+function removeSidebarTeamMember(teamMember) {
+    console.log("Remove " + teamMember.name);
+
+    const iOfMember = myTeam.indexOf(teamMember);
+    myTeam.splice(iOfMember, 1);
+    console.log(myTeam);
+    buildSidebarTeam();
+
+}
+
+function clearMyTeam() {
+    myTeam = [];
+    document.querySelector("#member").innerHTML = "";
+    checkMyTeamLength();
+    buildLoopView();
+}
+
+function checkMyTeamLength() {
+    if (myTeam.length > 0) {
+        document.querySelector(".info").style.display = "none";
+        document.querySelector(".clear").style.display = "block";
+        document.querySelector("#generate_link").style.display = "block";
+    } else {
+        document.querySelector(".info").style.display = "block";
+        document.querySelector(".clear").style.display = "none";
+        document.querySelector("#generate_link").style.display = "none";
+    }
+}
+
+// Open teammember modal and place data
+
+function showTeamMembermodal(teamMember) {
+    const modal = document.querySelector(".modal");
+
+    // Displays modal
+    modal.style.display = "block";
+
+    // Places data inside modal
+    modal.querySelector("h2").textContent = teamMember.name;
+    modal.querySelector("h3").textContent = teamMember.position;
+    modal.querySelector("[data-field=description]").textContent = teamMember.description;
+    modal.querySelector("[data-field=department]").textContent = teamMember.department;
+
+    if (teamMember.phone === "") {
+        modal.querySelector(".phone").textContent = "";
+    } else {
+        modal.querySelector(".phone").textContent = "Phone: " + teamMember.phone;
+    }
+
+    modal.querySelector(".e-mail").textContent = "E-mail: " + teamMember.email;
+    modal.querySelector("img").src = "img/" + teamMember.image;
+
+    modal.querySelector("#close_modal").addEventListener("click", closeModal);
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Ved klik udenfor modal lukkes den
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 
 }
