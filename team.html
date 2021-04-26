@@ -6,17 +6,15 @@
     <link rel="icon" type="image/png" href="img/icons/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_team.css">
+    <link rel="stylesheet" href="style.css">
     <title>Signifly Team</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/signifly_logo.png">
-        </div>
-    </header>
-    <main>
+    <div class="logo">
+        <img src="img/signifly_logo.png">
+    </div>
+    <section id="section_team">
         <div class="team_info">
             <h1>
                 <span>This is</span><br>
@@ -42,17 +40,6 @@
             </article>
         </template>
 
-        <template id="newTeamMember">
-            <article>
-                <img src="">
-                <div class="myteam_details">
-                    <h2 class="myteam_name"></h2>
-                    <p class="myteam_position"></p>
-                </div>
-                <div id="remove_member"></div>
-            </article>
-        </template>
-
         <div class="modal">
             <article>
                 <div class="column img">
@@ -71,7 +58,7 @@
                 </div>
             </article>
         </div>
-    </main>
+    </section>
 
     <script type=module src="team.js"></script>
 

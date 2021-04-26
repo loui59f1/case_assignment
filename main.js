@@ -8,8 +8,7 @@ let myTeam = [];
 const teamMemberPrototype = {
     name: "",
     position: "",
-    description: "",
-    imageSrc: "null",
+    description: ""
 };
 
 const settings = {
@@ -19,15 +18,9 @@ const settings = {
 };
 
 function init() {
-    console.log("Initialize program");
-
-    addEventListenersToBtns();
+    document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", selectFilter));
 
     loadJSON("team.json", prepareData);
-}
-
-function addEventListenersToBtns() {
-    document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", selectFilter));
 }
 
 async function loadJSON(url, event) {
@@ -62,13 +55,11 @@ function prepareData(jsonData) {
         allTeamMembers.forEach((o, i) => o.id = i + 1);
 
     });
-
     buildLoopView();
 }
 
 function selectFilter(event) {
     const filter = event.target.dataset.filter;
-    console.log(`User selected ${filter}`);
     defineFilter(filter);
 }
 
@@ -139,7 +130,6 @@ function sortList(sortedList) {
 }
 
 function buildLoopView() {
-    console.log("Build Loop view");
     const currentList = filterList(allTeamMembers);
     const sortedList = sortList(currentList);
 
@@ -154,7 +144,6 @@ function showAllTeamMembers(teamList) {
 function showTeamMember(teamMember) {
     const clone = document.querySelector("template#teamlist").content.cloneNode(true);
 
-    // Placing teammembers data into template
     clone.querySelector("[data-field=name]").textContent = teamMember.name;
     clone.querySelector("[data-field=position]").textContent = teamMember.position;
     clone.querySelector("[data-field=department]").textContent = teamMember.department;
@@ -166,7 +155,6 @@ function showTeamMember(teamMember) {
         clone.querySelector(".add").style.backgroundImage = 'url(img/icons/add_icon.svg)';
     }
 
-    // Tilføjer eventlistener på teammember, der åbner modal
     clone.querySelector("img").addEventListener("click", () => showTeamMembermodal(teamMember));
     clone.querySelector(".add").addEventListener("click", () => addTeamMember(teamMember));
 
@@ -175,15 +163,15 @@ function showTeamMember(teamMember) {
     checkMyTeamLength();
 
     document.querySelector(".clear").addEventListener("click", clearMyTeam);
-
 }
-
 
 function addTeamMember(teamMember) {
     if (myTeam.includes(teamMember)) {
+        console.log("already member");
         removeSidebarTeamMember(teamMember);
 
     } else {
+        console.log("adding member");
         myTeam.push(teamMember);
         console.log(myTeam);
     }
@@ -198,8 +186,6 @@ function buildSidebarTeam() {
 }
 
 function showAllSidebarTeam(myTeam) {
-    console.log("Show all sidebar teammembers");
-
     document.querySelector("#member").innerHTML = "";
 
     myTeam.forEach(showSidebarTeam);
@@ -208,18 +194,14 @@ function showAllSidebarTeam(myTeam) {
 function showSidebarTeam(sidebarTeamMember) {
     const clone = document.querySelector("template#newTeamMember").content.cloneNode(true);
 
-    // Placing teammembers data into myteam template
     clone.querySelector(".myteam_name").textContent = sidebarTeamMember.name;
     clone.querySelector(".myteam_position").textContent = sidebarTeamMember.position;
     clone.querySelector("img").src = "img/" + sidebarTeamMember.image;
-    // Tilføjer eventlistener på teammember, der åbner modal
+
     clone.querySelector("#remove_member").addEventListener("click", () => removeSidebarTeamMember(sidebarTeamMember));
 
     document.querySelector("#member").appendChild(clone);
 
-    //document.querySelector(".link_ids").href = "team.html?id=" + memberIDS;
-
-    document.querySelector("#generate_link").removeEventListener("click", showLink);
     document.querySelector("#generate_link").addEventListener("click", showLink);
 
 }
@@ -227,7 +209,6 @@ function showSidebarTeam(sidebarTeamMember) {
 function showLink() {
     document.querySelector(".link_container").style.display = "block";
 
-    // getting id's and making link
     const memberIDS = [];
 
     myTeam.forEach(function (member) {
@@ -236,6 +217,7 @@ function showLink() {
 
     const url = window.location.href;
     const link = document.querySelector("#link_input");
+
     link.value = url;
     link.scrollLeft = link.scrollWidth;
 
@@ -247,7 +229,6 @@ function showLink() {
 
 function closeLink() {
     document.querySelector(".link_container").style.display = "none";
-
 }
 
 function selectLink() {
@@ -258,7 +239,7 @@ function copyLink() {
     let copyText = document.querySelector("#link_input");
 
     copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    copyText.setSelectionRange(0, 99999);
 
     document.execCommand("copy");
 
@@ -281,7 +262,6 @@ function removeSidebarTeamMember(teamMember) {
 function clearMyTeam() {
     myTeam = [];
     document.querySelector("#member").innerHTML = "";
-    checkMyTeamLength();
     closeLink();
     buildLoopView();
 }
@@ -299,6 +279,7 @@ function checkMyTeamLength() {
 }
 
 function showTeamMembermodal(teamMember) {
+    console.log(teamMember);
     const modal = document.querySelector(".modal");
 
     modal.style.display = "block";
@@ -318,17 +299,45 @@ function showTeamMembermodal(teamMember) {
     modal.querySelector("img").src = "img/" + teamMember.image;
     modal.querySelector("#close_modal").addEventListener("click", closeModal);
 
-    // fix this
-    modal.querySelector(".add").addEventListener("click", () => addTeamMember(teamMember));
+    // // fix this
+    // modal.querySelector(".add_modal").addEventListener("click", function () {
+    //     if (myTeam.includes(teamMember)) {
+    //         console.log("already member - modal");
+    //         removeSidebarTeamMember(teamMember);
+
+    //     } else {
+    //         console.log("adding member - modal");
+    //         myTeam.push(teamMember);
+    //         console.log(myTeam);
+    //     }
+    //     closeModal();
+    //     buildSidebarTeam();
+    // });
 
     function closeModal() {
         modal.style.display = "none";
+        buildLoopView();
     }
 
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            buildLoopView();
         }
     };
 
 }
+
+// function addTeamMemberModal(teamMember) {
+// if (myTeam.includes(teamMember)) {
+//     console.log("already member - modal");
+//     removeSidebarTeamMember(teamMember);
+
+// } else {
+//     console.log("adding member - modal");
+//     myTeam.push(teamMember);
+//     console.log(myTeam);
+// }
+// document.querySelector(".modal").style.display = "none";
+// buildSidebarTeam();
+// }
