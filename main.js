@@ -167,13 +167,10 @@ function showTeamMember(teamMember) {
 
 function addTeamMember(teamMember) {
     if (myTeam.includes(teamMember)) {
-        console.log("already member");
         removeSidebarTeamMember(teamMember);
 
     } else {
-        console.log("adding member");
         myTeam.push(teamMember);
-        console.log(myTeam);
     }
     buildSidebarTeam();
 }
@@ -251,8 +248,6 @@ function copyLink() {
 }
 
 function removeSidebarTeamMember(teamMember) {
-    console.log("Remove " + teamMember.name);
-
     const iOfMember = myTeam.indexOf(teamMember);
     myTeam.splice(iOfMember, 1);
     console.log(myTeam);
@@ -279,7 +274,6 @@ function checkMyTeamLength() {
 }
 
 function showTeamMembermodal(teamMember) {
-    console.log(teamMember);
     const modal = document.querySelector(".modal");
 
     modal.style.display = "block";
@@ -314,17 +308,11 @@ function showTeamMembermodal(teamMember) {
     };
 }
 
-function testfunction() {
-    alert("test");
-}
-
 function addTeamMemberModal(teamMember) {
     if (myTeam.includes(teamMember)) {
-        console.log("already member - modal");
         removeSidebarTeamMember(teamMember);
 
     } else {
-        console.log("adding member - modal");
         myTeam.push(teamMember);
         console.log(myTeam);
     }
