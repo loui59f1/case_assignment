@@ -279,6 +279,9 @@ main {
     background: #fff;
     padding: 25px;
     box-shadow: 0px 0px 30px -14px rgba(199, 199, 199, 0.6);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5vh;
 }
 
 #myteam .clear {
@@ -447,8 +450,7 @@ main {
 
 .link_container {
     display: none;
-    padding: 25px;
-    padding-top: 5px;
+    margin-top: 10px;
     background: #fff;
     position: relative;
     padding-top: 15px;

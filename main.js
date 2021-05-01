@@ -299,45 +299,35 @@ function showTeamMembermodal(teamMember) {
     modal.querySelector("img").src = "img/" + teamMember.image;
     modal.querySelector("#close_modal").addEventListener("click", closeModal);
 
-    // // fix this
-    // modal.querySelector(".add_modal").addEventListener("click", function () {
-    //     if (myTeam.includes(teamMember)) {
-    //         console.log("already member - modal");
-    //         removeSidebarTeamMember(teamMember);
-
-    //     } else {
-    //         console.log("adding member - modal");
-    //         myTeam.push(teamMember);
-    //         console.log(myTeam);
-    //     }
-    //     closeModal();
-    //     buildSidebarTeam();
-    // });
-
     function closeModal() {
         modal.style.display = "none";
         buildLoopView();
+        buildSidebarTeam();
     }
 
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
             buildLoopView();
+            buildSidebarTeam();
         }
     };
-
 }
 
-// function addTeamMemberModal(teamMember) {
-// if (myTeam.includes(teamMember)) {
-//     console.log("already member - modal");
-//     removeSidebarTeamMember(teamMember);
+function testfunction() {
+    alert("test");
+}
 
-// } else {
-//     console.log("adding member - modal");
-//     myTeam.push(teamMember);
-//     console.log(myTeam);
-// }
-// document.querySelector(".modal").style.display = "none";
-// buildSidebarTeam();
-// }
+function addTeamMemberModal(teamMember) {
+    if (myTeam.includes(teamMember)) {
+        console.log("already member - modal");
+        removeSidebarTeamMember(teamMember);
+
+    } else {
+        console.log("adding member - modal");
+        myTeam.push(teamMember);
+        console.log(myTeam);
+    }
+    document.querySelector(".modal").style.display = "none";
+    buildSidebarTeam();
+}
