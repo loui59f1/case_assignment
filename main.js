@@ -221,7 +221,7 @@ function showLink() {
     link.value = url;
     link.scrollLeft = link.scrollWidth;
 
-    link.value = "team.html?id=" + memberIDS;
+    link.value = url + "team.html?id=" + memberIDS;
 
     link.addEventListener("click", selectLink);
     document.querySelector("#clipboard_copy").addEventListener("click", copyLink);
